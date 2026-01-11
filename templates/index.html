@@ -17,14 +17,18 @@
 
 <body>
     <h1>Email Spam Classifier</h1>
-    <form method="POST">
-        <textarea name = "email-content"placeholder="Enter Your Email Body" rows="15" cols="35">{{ text }}</textarea>
+    <form method="POST" action="/predict">
+        <textarea name = "content"placeholder="Enter Your Email Body" rows="15" cols="35">{{ email_text }}</textarea>
         <div>
-        <button>Check Spam</button>
+        <button>Button</button>
         <a href="/">Reset</a>
         </div>
     </form>
-    <h2>{{ text }}</h2>
+    {% if predictions ==1 %}
+    <h2 style="color: red">SPAM</h2>
+    {% elif predictions == -1 %}
+    <h2 style = "color: green">NOT SPAM</h2>
+    {% endif %}
 </body>
 
 </html>
